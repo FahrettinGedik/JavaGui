@@ -1,6 +1,6 @@
-import java.awt.*;
+import java.awt. *;
 
-import javax.swing.*;
+import javax.swing. *;
 
 public class MainFrame extends JFrame {
 
@@ -9,10 +9,9 @@ public class MainFrame extends JFrame {
     JLabel lbWelcome;
 
     public void initialize() {
-         /* Form Panel */
-         JLabel lbFirstName = new JLabel("First Name");
-         lbFirstName.setFont(mainFont);
-
+        /* Form Panel */
+        JLabel lbFirstName = new JLabel("First Name");
+        lbFirstName.setFont(mainFont);
 
         tfFirstName = new JTextField();
         tfFirstName.setFont(mainFont);
@@ -24,13 +23,12 @@ public class MainFrame extends JFrame {
         tfLastName.setFont(mainFont);
 
         JPanel formPanel = new JPanel();
-        formPanel.setLayout(new GridLayout(4, 1, 5,5));
+        formPanel.setLayout(new GridLayout(4, 1, 5, 5));
         formPanel.setOpaque(false);
         formPanel.add(lbFirstName);
         formPanel.add(tfFirstName);
         formPanel.add(lbLastName);
         formPanel.add(tfLastName);
-
 
         /* Main Panel Welcome Label */
 
@@ -41,7 +39,7 @@ public class MainFrame extends JFrame {
         /* Main Panel Buttons Panel */
         JButton btnSubmit = new JButton("Submit");
         btnSubmit.setFont(mainFont);
-        btnSubmit.addActionListener(e -> {
+        btnSubmit.addActionListener(e - > {
             String firstName = tfFirstName.getText();
             String lastName = tfLastName.getText();
             lbWelcome.setText("Welcome, " + firstName + " " + lastName);
@@ -49,7 +47,7 @@ public class MainFrame extends JFrame {
 
         JButton btnClear = new JButton("Clear");
         btnClear.setFont(mainFont);
-        btnClear.addActionListener(e -> {
+        btnClear.addActionListener(e - > {
             tfFirstName.setText("");
             tfLastName.setText("");
             lbWelcome.setText("");
@@ -62,11 +60,10 @@ public class MainFrame extends JFrame {
         buttonsPanel.add(btnClear);
 
         /* Main Panel */
-        
 
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
-        mainPanel.setBackground(new Color(128,128,255));
+        mainPanel.setBackground(new Color(128, 128, 255));
         mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         mainPanel.add(formPanel, BorderLayout.NORTH);
@@ -74,7 +71,6 @@ public class MainFrame extends JFrame {
         mainPanel.add(buttonsPanel, BorderLayout.SOUTH);
 
         add(mainPanel);
-
 
         setTitle("Welcome App");
         setSize(500, 600);
@@ -88,5 +84,4 @@ public class MainFrame extends JFrame {
         mainFrame.initialize();
     }
 
-    
 }
