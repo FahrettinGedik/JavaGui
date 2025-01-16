@@ -1,10 +1,12 @@
 import java.awt. *;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing. *;
 
 public class MainFrame extends JFrame {
 
-    final private Font mainFont = new Font("Arial", Font.PLAIN, 20);
+    final private Font mainFont = new Font("Segoe print", Font.BOLD, 18);
     JTextField tfFirstName, tfLastName;
     JLabel lbWelcome;
 
@@ -30,27 +32,40 @@ public class MainFrame extends JFrame {
         formPanel.add(lbLastName);
         formPanel.add(tfLastName);
 
-        /* Main Panel Welcome Label */
-
+        /* Welcome Label */
         lbWelcome = new JLabel();
-
         lbWelcome.setFont(mainFont);
 
-        /* Main Panel Buttons Panel */
+        /* Buttons Panel */
         JButton btnSubmit = new JButton("Submit");
         btnSubmit.setFont(mainFont);
-        btnSubmit.addActionListener(e - > {
-            String firstName = tfFirstName.getText();
-            String lastName = tfLastName.getText();
-            lbWelcome.setText("Welcome, " + firstName + " " + lastName);
+        btnSubmit.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // TODO Auto-generated method stub
+                String firstName = tfFirstName.getText();
+                String lastName = tfLastName.getText();
+                lbWelcome.setText("Welcome " + firstName + " " + lastName);
+                throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+            }
+            
+
         });
 
         JButton btnClear = new JButton("Clear");
         btnClear.setFont(mainFont);
-        btnClear.addActionListener(e - > {
-            tfFirstName.setText("");
-            tfLastName.setText("");
-            lbWelcome.setText("");
+        btnClear.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // TODO Auto-generated method stub
+                tfFirstName.setText("");
+                tfLastName.setText("");
+                lbWelcome.setText("");
+                throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+            }
+
         });
 
         JPanel buttonsPanel = new JPanel();
@@ -60,12 +75,10 @@ public class MainFrame extends JFrame {
         buttonsPanel.add(btnClear);
 
         /* Main Panel */
-
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
         mainPanel.setBackground(new Color(128, 128, 255));
         mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-
         mainPanel.add(formPanel, BorderLayout.NORTH);
         mainPanel.add(lbWelcome, BorderLayout.CENTER);
         mainPanel.add(buttonsPanel, BorderLayout.SOUTH);
